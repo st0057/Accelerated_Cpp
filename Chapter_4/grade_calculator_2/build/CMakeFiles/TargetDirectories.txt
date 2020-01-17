@@ -1,3 +1,0 @@
-/home/runner/AccCppText/Accelerated_Cpp/Chapter_4/grade_calculator/build/CMakeFiles/rebuild_cache.dir
-/home/runner/AccCppText/Accelerated_Cpp/Chapter_4/grade_calculator/build/CMakeFiles/grade_calculator.dir
-/home/runner/AccCppText/Accelerated_Cpp/Chapter_4/grade_calculator/build/CMakeFiles/edit_cache.dir
