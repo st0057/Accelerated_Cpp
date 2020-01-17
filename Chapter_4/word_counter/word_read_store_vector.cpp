@@ -13,24 +13,16 @@ using std::endl;          using std::string;
 using std::max;           using std::vector;
 using std::istream;
 
-istream& read(istream& is, string& s)
-{
-  // read and store the word into a string
-  is >> s;
-
-  return is;
-}
-
 int read(istream& is, vector<string>& v)
 {
   string s;
   // read and store the word into a vector
-  while (is) {
-    is >> s;
-    cout << "arf" << endl;
+  while (is >> s) {
+    //cout << "arf" << endl;
     v.push_back(s);
   }
-
+  is.clear();
+  
   return 0;
 }
 
