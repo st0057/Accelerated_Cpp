@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/grade_calculator.dir/grade_calc_main.cpp.o CMakeFiles/grade_calculator.dir/grade.cpp.o CMakeFiles/grade_calculator.dir/median.cpp.o CMakeFiles/grade_calculator.dir/Student_info.cpp.o  -o grade_calculator 
