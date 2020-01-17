@@ -11,6 +11,7 @@ using std::vector;
 int main() {
   typedef vector<double>::size_type vec_sz;
   vector<string> words;
+  vector<string> count_vector;
 
   // read strings into a vector of strings
   read(cin, words);
@@ -19,10 +20,11 @@ int main() {
   vec_sz total = words.size();
 
   // count distinct number of words 
-  vector<string> count_vector = distinct_words(words);
+  distinct_words(words, count_vector);
+  vec_sz num_distinct = count_vector.size();
 
   // print the results
-  for (int i = 0; i < total; i++) {
+  for (int i = 0; i < num_distinct; i++) {
     cout << count_vector[i] << endl;
   }
 

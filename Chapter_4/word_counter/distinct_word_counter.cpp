@@ -1,12 +1,14 @@
+#include <algorithm>
+#include <sstream>
 #include "distinct_word_counter.h"
 
-using std::cin;         using std::sort;
-using std::stringstream using std::string;
+using std::cin;           using std::cout;
+using std::endl;          using std::sort;
+using std::stringstream;  using std::string;    
 using std::vector;
 
-vector<string> distinct_words(vector<string> words) {
+int distinct_words(vector<string> words, vector<string>& count_vector) {
   typedef vector<double>::size_type vec_sz;
-  vector<string> count_vector;
   string temporary;
   stringstream ss;
   int j;
@@ -16,28 +18,26 @@ vector<string> distinct_words(vector<string> words) {
   vec_sz length = words.size();
 
   // Check that user entered at least one word 
-  if (size == 0){
+  if (length == 0){
     cout << endl << "You must enter at least one word!" << endl;
 
     return 1;
   }
 
   // sort the words alphabetically
-  sort(words.begin(), words.end())
+  sort(words.begin(), words.end());
 
   // count number of times a word occurs
-  while(i < size){
+  while(i < length){
     j = 1;
     ss.str("");
-    cout << i << endl;
-    if (i != size) {
+    if (i != length) {
       while (words[i] == words[i + j]) {
         j++;
       }
     }
     ss << j;
     temporary = words[i] + " " + ss.str();
-    cout << temporary << endl;
     count_vector.push_back(temporary);
     if (j == 1)
       i++;
@@ -45,5 +45,5 @@ vector<string> distinct_words(vector<string> words) {
       i = i + j;
   }
 
-  return count_vector;
+  return 0;
 }

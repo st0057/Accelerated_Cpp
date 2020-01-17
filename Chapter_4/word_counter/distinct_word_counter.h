@@ -5,6 +5,6 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> distinct_words(std::vector<std::string> words);
+int distinct_words(std::vector<std::string>, std::vector<std::string>&);
 
 #endif
