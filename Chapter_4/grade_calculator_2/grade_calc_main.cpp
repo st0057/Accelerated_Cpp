@@ -37,7 +37,7 @@ int main() {
     // compute and write the grade 
     try {
       streamsize prec = cout.precision();
-      cout << setprecision(3) << s.final_grade << setprecision(prec);
+      cout << setprecision(3) << students[i].final_grade << setprecision(prec);
     } catch (domain_error e) {
       cout << e.what();
     }
