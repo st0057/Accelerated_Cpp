@@ -4,8 +4,9 @@
 #include "read_stream2vector.h"
 #include "distinct_word_counter.h"
 
-using std::cin;     using std::sort;
-using std::string;  using std::vector;
+using std::cin;     using std::cout;
+using std::endl;    using std::string;
+using std::vector;
 
 int main() {
   typedef vector<double>::size_type vec_sz;

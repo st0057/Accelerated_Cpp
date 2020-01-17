@@ -6,6 +6,6 @@
 #include <string>
 #include <vector>
 
-int read(std::istream&, std::vector<string>&)
+int read(std::istream&, std::vector<std::string>&);
 
 #endif
