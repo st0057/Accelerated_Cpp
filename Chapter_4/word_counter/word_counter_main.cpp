@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "read_stream2vector.h"
+#include "distinct_word_counter.h"
 
 using std::cin;     using std::sort;
 using std::string;  using std::vector;
@@ -13,24 +14,16 @@ int main() {
   // read strings into a vector of strings
   read(cin, words);
 
-  // count the number of words
-  vec_sz length = words.size();
+  // count the total number of words 
+  vec_sz total = words.size();
 
-  // Check that user entered at least one word 
-  if (size == 0){
-    cout << endl << "You must enter at least one word!" << endl;
+  // count distinct number of words 
+  vector<string> count_vector = distinct_words(words);
 
-    return 1;
+  // print the results
+  for (int i = 0; i < total; i++) {
+    cout << count_vector[i] << endl;
   }
-
-  // sort the words alphabetically
-  sort(words.begin(), words.end())
-
-  // count number of times a word occurs
-  for (int i = 0; i < length; i++) {
-    
-  }
-
 
   return 0;
 }

@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include "distinct_word_counter.h"
 
 using std::cin;         using std::sort;
 using std::stringstream using std::string;
