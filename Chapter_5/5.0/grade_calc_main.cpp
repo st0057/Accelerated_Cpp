@@ -7,7 +7,7 @@
 #include <vector>
 #include "grade.h"
 #include "Student_info.h"
-#include "extract_fails_ver1.h"
+#include "extract_fails_ver2.h"
 
 using std::cin;           using std::setprecision;
 using std::cout;          using std::sort;
