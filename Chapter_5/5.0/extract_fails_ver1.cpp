@@ -1,6 +1,7 @@
 #include "extract_fails_ver1.h"
+#include "Student_info.h"
 
-using vector;
+using std::vector;
 
 // separate passing and failing student records
 vector<Student_info> extract_fails(vector<Student_info>& students){
