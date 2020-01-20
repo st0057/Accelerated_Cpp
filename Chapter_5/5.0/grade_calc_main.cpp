@@ -7,7 +7,7 @@
 #include <vector>
 #include "grade.h"
 #include "Student_info.h"
-#inlcude "extract_fails_ver1.h"
+#include "extract_fails_ver1.h"
 
 using std::cin;           using std::setprecision;
 using std::cout;          using std::sort;
@@ -31,22 +31,10 @@ int main() {
   // alphabetize the student records
   sort(students.begin(), students.end(), compare);
 
-  fails = extract_fails(vector<Student_info>& students);
+  // Extract the failing grades
+  fails = extract_fails(students);
 
-  // write the names and grades
-  for (vector<Student_info>::size_type i = 0; i != fails.size(); ++i) {
-    // write the name, padded on the right to maxlen + 1 chars
-    cout << fails[i].name << string(maxlen + 1 - fails[i].name.size(), ' ');
-
-    // compute and write the grade 
-    try {
-      streamsize prec = cout.precision();
-      cout << setprecision(3) << fails[i].final_grade << setprecision(prec);
-    } catch (domain_error e) {
-      cout << e.what();
-    }
-    cout << endl;
-  }
+  cout << fails[0].name << "  " << grade(fails[0]) << endl;
 
   return 0;
 }
