@@ -14,3 +14,7 @@ vector<Student_info> extract_fails(vector<Student_info>& students){
   students = pass;
   return fail;
 }
+
+bool fgrade(const Student_info& s){
+  return grade(s) < 60;
+}
