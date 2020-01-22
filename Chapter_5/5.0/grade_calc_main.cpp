@@ -20,7 +20,6 @@ using std::list;
 int main() {
   list<Student_info> students;
   list<Student_info> fails;
-  list<Student_info>::iterator iter;
   Student_info record;
 
   // read and store all student data
@@ -35,9 +34,7 @@ int main() {
   // Extract the failing grades
   fails = extract_fails(students);
 
-  iter = fails.begin();
-
-  cout << (*iter).name << "  " << grade((*iter)) << endl;
+  cout << (*fails.begin()).name << "  " << grade((*fails.begin())) << endl;
 
   return 0;
 }
