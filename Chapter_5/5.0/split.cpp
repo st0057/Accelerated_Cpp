@@ -1,6 +1,4 @@
 #include <iostream>
-//#include <string>
-//#include <vector>
 #include "split.h"
 
 using std::string;  using std::endl;
