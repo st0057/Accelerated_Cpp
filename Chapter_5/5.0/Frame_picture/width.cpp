@@ -1,6 +1,7 @@
 #include "width.h"
 
 using std::string;    using std::vector;
+using std::max;
 
 string::size_type width(const vector<string>& v)
 {
