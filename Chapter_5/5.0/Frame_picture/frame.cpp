@@ -1,8 +1,20 @@
 #include <iostream>
 #include "frame.h"
+#include "width.h"
 
 using std::string;    using std::vector;
 using std::cout;      using std::endl;
+
+vector<string> vcat(const vector<string>& top, const vector<string>& bottom)
+{
+  // copy the top picture
+  vector<string> ret = top;
+
+  // copy entire bottom picture
+  ret.insert(ret.end(), bottom.begin(), bottom.end());
+
+  return ret;
+}
 
 vector<string> frame(const vector<string>& v)
 {
@@ -25,18 +37,21 @@ vector<string> frame(const vector<string>& v)
 
 
 // Used for testing this function
-// int main() {
-//   vector<string> abc, abc_framed;
+int main() {
+  vector<string> abc, abc1, abc_cat, abc_cat_framed;
 
-//   abc.push_back("abc");
-//   abc.push_back("bcd");
-//   abc.push_back("cdefg");
+  abc.push_back("abc");
+  abc.push_back("bcd");
+  abc1.push_back("cdef");
+  abc1.push_back("cdef");
 
-//   abc_framed = frame(abc);
+  abc_cat = vcat(abc, abc1);
 
-//   for (vector<string>::size_type i = 0; i != abc_framed.size(); ++i) {
-//     cout << abc_framed[i] << endl;
-//   }
+  abc_cat_framed = frame(abc_cat);
 
-//   return 0;
-// }
+  for (vector<string>::size_type i = 0; i != abc_cat_framed.size(); ++i) {
+    cout << abc_cat_framed[i] << endl;
+  }
+
+  return 0;
+}

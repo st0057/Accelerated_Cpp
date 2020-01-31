@@ -1,3 +1,4 @@
+#include <iostream>
 #include "width.h"
 
 using std::string;    using std::vector;
@@ -10,3 +11,14 @@ string::size_type width(const vector<string>& v)
     maxlen = max(maxlen, v[i].size());
   return maxlen;
 }
+
+// int main() {
+//   vector<string> abc;
+//   abc.push_back("abc");
+//   abc.push_back("abcde");
+
+//   string::size_type max = width(abc);
+//   std::cout << max << std::endl;
+
+//   return 0;
+// }
