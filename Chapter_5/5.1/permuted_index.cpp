@@ -27,15 +27,17 @@ vector<string> vcat(vector<string>& top, const vector<string>& bottom)
   return ret;
 }
 
-vector<string> permute_vec(vector<string>& vec)
+vector<vector<string>> permute_vec(vector<string>& vec)
 {
   // Get the original vector length
   vector<string>::size_type vec_length = vec.size();
   // initialize the permuted vector
-  vector<string> shifted_vec = vec, perm_vec;
+  vector<string> shifted_vec = vec;
+  vector<vector<string>> perm_vec;
+  perm_vec.resize(vec_length);
 
   for (int i = 0; i < vec_length; i++) {
-    perm_vec = vcat(perm_vec, shifted_vec);
+    perm_vec[i] = shifted_vec;
     shifted_vec = shift_vec_index_left(shifted_vec);
   }
 
@@ -52,13 +54,15 @@ int main() {
 
   vector<string>::size_type len_s1_vec = s1_vec.size();
 
-  vector<string> permuted_vector = permute_vec(s1_vec);
+  vector<vector<string>> permuted_vector = permute_vec(s1_vec);
 
-  vector<string>::size_type len_perm_vec = permuted_vector.size();
+  vector<vector<string>>::size_type len_perm_vec = permuted_vector.size();
   for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
-    if ((i + 1) % len_s1_vec != 0)
-      cout << permuted_vector[i] + " ";
-    else
-      cout << permuted_vector[i] << endl;
+    for (vector<string>::size_type j = 0; j < len_perm_vec; ++j){
+      if ((j + 1) % len_s1_vec != 0)
+        cout << permuted_vector[i][j] + " ";
+      else
+        cout << permuted_vector[i][j] << endl;
+    }
   }
 }
