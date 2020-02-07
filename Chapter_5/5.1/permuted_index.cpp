@@ -1,5 +1,7 @@
+#include <algorithm>
 #include <iostream>
 #include <cmath>
+#include <locale>
 #include <string>
 #include <vector>
 #include "split.h"
@@ -7,8 +9,9 @@
 
 using std::string;      using std::vector;
 using std::endl;        using std::cout;
+using std::sort;        using std::tolower;
 
-vector<string> shift_vec_index_left(vector<string>& vec)
+vector<string> rotate_left(vector<string>& vec)
 {
   vec.push_back(vec[0]);
   vec.erase(vec.begin());  
@@ -38,11 +41,15 @@ vector<vector<string>> permute_vec(vector<string>& vec)
 
   for (int i = 0; i < vec_length; i++) {
     perm_vec[i] = shifted_vec;
-    shifted_vec = shift_vec_index_left(shifted_vec);
+    shifted_vec = rotate_left(shifted_vec);
   }
 
   return perm_vec;
 }
+
+ bool compare (vector<string> i, vector<string> j) {
+    return (tolower(i[0][0])<tolower(j[0][0])); 
+   }
 
 int main() {
   vector<string> s1_vec, s2_vec;
@@ -57,6 +64,9 @@ int main() {
   vector<vector<string>> permuted_vector = permute_vec(s1_vec);
 
   vector<vector<string>>::size_type len_perm_vec = permuted_vector.size();
+
+  sort(permuted_vector.begin(),permuted_vector.end(),compare);
+  
   for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
     for (vector<string>::size_type j = 0; j < len_perm_vec; ++j){
       if ((j + 1) % len_s1_vec != 0)
@@ -66,3 +76,4 @@ int main() {
     }
   }
 }
+
