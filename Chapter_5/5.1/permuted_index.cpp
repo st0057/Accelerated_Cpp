@@ -9,6 +9,8 @@ using std::string;      using std::vector;
 using std::endl;        using std::cout;
 using std::sort;        using std::tolower;
 
+const string endmark = "<ENDMARK>";
+
 // Function to rotate the index one place to the left
 void rotate_left(vector<string>& vec)
 {
@@ -46,10 +48,11 @@ vector<vector<string>> permute_vec(vector<string>& vec)
   vector<vector<string>> perm_vec;
   perm_vec.resize(vec_length);
 
-  for (vector<vector<string>>::iterator iter = perm_vec.begin(); iter != perm_vec.end(); ++iter)
+  for (vector<vector<string>>::iterator iter = perm_vec.begin(); iter != perm_vec.end(); iter++)
   {
-    *iter = shifted_vec;
-    rotate_left(shifted_vec);
+    if(shifted_vec[0] != endmark)
+      *iter = shifted_vec;
+      rotate_left(shifted_vec);
   }
 
   return perm_vec;
@@ -65,6 +68,9 @@ int main() {
   vector<string> s1_vec, s2_vec;
   string s1 = "The quick brown fox";
   string s2 = "jumped over the fence";
+
+  s1 = s1 + " " + endmark;
+  s2 = s2 + " " + endmark;
   
   s1_vec = split_vec(s1);
   s2_vec = split_vec(s2);
@@ -76,7 +82,7 @@ int main() {
   vector<vector<string>>::size_type len_perm_vec = permuted_vector.size();
 
   sort(permuted_vector.begin(), permuted_vector.end(), compare);
-  
+
   for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
     for (vector<string>::size_type j = 0; j < len_perm_vec; ++j){
       if ((j + 1) % len_s1_vec != 0)
