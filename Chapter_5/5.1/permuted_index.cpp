@@ -46,8 +46,9 @@ vector<vector<string>> permute_vec(vector<string>& vec)
   vector<vector<string>> perm_vec;
   perm_vec.resize(vec_length);
 
-  for (int i = 0; i < vec_length; i++) {
-    perm_vec[i] = shifted_vec;
+  for (vector<vector<string>>::iterator iter = perm_vec.begin(); iter != perm_vec.end(); ++iter)
+  {
+    *iter = shifted_vec;
     rotate_left(shifted_vec);
   }
 
