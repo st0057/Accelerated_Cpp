@@ -58,22 +58,22 @@ list<string> split_list(const string& s)
 }
 
 //Test function here
-int main() {
-  string abc = "Hello there boy!";
-  vector<string> abc_vec;
-  list<string> abc_list;
+// int main() {
+//   string abc = "Hello there boy!";
+//   vector<string> abc_vec;
+//   list<string> abc_list;
   
-  abc_vec = split_vec(abc);
-  abc_list = split_list(abc);
-  list<string>::iterator iter = abc_list.begin();
+//   abc_vec = split_vec(abc);
+//   abc_list = split_list(abc);
+//   list<string>::iterator iter = abc_list.begin();
 
-  cout << endl;
+//   cout << endl;
 
-  cout << abc_vec[0] << abc_vec[2] << endl;
+//   cout << abc_vec[0] << abc_vec[2] << endl;
 
-  cout << *iter << endl;
-  iter++;
-  cout << *iter << endl;
+//   cout << *iter << endl;
+//   iter++;
+//   cout << *iter << endl;
 
-  return 0;
-}
+//   return 0;
+// }
