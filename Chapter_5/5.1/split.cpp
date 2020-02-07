@@ -71,7 +71,9 @@ int main() {
 
   cout << abc_vec[0] << abc_vec[2] << endl;
 
-  //cout << abc_list(iter) << abc_list(iter + 1) << abc_list(iter) << endl;
+  cout << *iter << endl;
+  iter++;
+  cout << *iter << endl;
 
   return 0;
 }
