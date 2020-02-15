@@ -46,13 +46,15 @@ vector<vector<string>> permute_vec(vector<string>& vec)
   // initialize the permuted vector
   vector<string> shifted_vec = vec;
   vector<vector<string>> perm_vec;
-  perm_vec.resize(vec_length);
+  perm_vec.resize(vec_length - 1);
 
   for (vector<vector<string>>::iterator iter = perm_vec.begin(); iter != perm_vec.end(); iter++)
   {
-    if(shifted_vec[0] != endmark)
+    if(shifted_vec[0] != endmark){
+      //cout << shifted_vec[0] << endl;
       *iter = shifted_vec;
       rotate_left(shifted_vec);
+    }
   }
 
   return perm_vec;
@@ -60,7 +62,8 @@ vector<vector<string>> permute_vec(vector<string>& vec)
 
 // Bool func that compares the lowercase char of the first string in a vector<string>
  bool compare (vector<string> i, vector<string> j) {
-    return (tolower(i[0][0]) < tolower(j[0][0])); 
+    //cout << i[0] << " " << j[0] << endl;
+    return (i[0] < j[0]); 
    }
 
 // For testing
@@ -77,15 +80,24 @@ int main() {
 
   vector<string>::size_type len_s1_vec = s1_vec.size();
 
+  cout << "Permuting vector..." << endl;
+
   vector<vector<string>> permuted_vector = permute_vec(s1_vec);
 
   vector<vector<string>>::size_type len_perm_vec = permuted_vector.size();
 
+  cout << "Sorting permutations..." << endl;
+
   sort(permuted_vector.begin(), permuted_vector.end(), compare);
 
+  cout << "Permuations sorted!!!" << endl;
+
   for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
+    //cout << "i=" << i << endl;
     for (vector<string>::size_type j = 0; j < len_perm_vec; ++j){
-      if ((j + 1) % len_s1_vec != 0)
+      //cout << "j=" << j << endl;
+      //cout << permuted_vector[i][j] << endl;
+      if ((j + 1) % (len_s1_vec - 1) != 0)
         cout << permuted_vector[i][j] + " ";
       else
         cout << permuted_vector[i][j] << endl;
