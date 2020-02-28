@@ -23,7 +23,7 @@ void rotate_right(vector<string>& vec)
 {
   string end = *(vec.rbegin());
   vec.pop_back();
-  vec.insert(vec.begin(), end);  
+  vec.insert(vec.begin(), end); 
 }
 
 // Function to vertically concatenate two vector<string>'s
@@ -92,22 +92,19 @@ int main() {
 
   cout << "Permuations sorted!!!" << endl;
 
-  for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
-    //cout << "i=" << i << endl;
-    //cout << permuted_vector[i](permuted_vector[i].begin()) << endl;
-    // while (*iter != endmark){
-    //   cout << "rotating right" << endl;
-    //   rotate_right(permuted_vector[i]);
-    // }
-    for (vector<string>::size_type j = 0; j < len_s1_vec; ++j){
-      if (permuted_vector[i][j] != endmark) {
-        if (j != len_s1_vec - 1)
-          cout << permuted_vector[i][j] + " ";
+  for (vector<vector<string>>::iterator iter1 = permuted_vector.begin(); iter1 != permuted_vector.end(); iter1++){
+    while (*((*iter1).begin()) != *(s1_vec.rbegin())){
+      rotate_right(*iter1);
+    }
+    for (vector<string>::iterator iter2 = (*iter1).begin(); iter2 != (*iter1).end(); iter2++){
+      if (*iter2 != *(s1_vec.rbegin())) {
+        if (*iter2 != *((*iter1).rbegin()))
+          cout << *iter2 + " ";
         else
-          cout << permuted_vector[i][j] << endl;
+          cout << *iter2 << endl;
       }
       else {
-        if (j == len_s1_vec - 1)
+        if (*iter2 == *((*iter1).rbegin()))
           cout << endl;
       }
     }
