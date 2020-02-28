@@ -86,7 +86,7 @@ int main() {
 
   vector<vector<string>>::size_type len_perm_vec = permuted_vector.size();
 
-  cout << "Sorting permutations..." << endl;
+  cout << "Sorting permutations..." << len_s1_vec << endl;
 
   sort(permuted_vector.begin(), permuted_vector.end(), compare);
 
@@ -94,13 +94,22 @@ int main() {
 
   for (vector<string>::size_type i = 0; i < len_perm_vec; ++i){
     //cout << "i=" << i << endl;
-    for (vector<string>::size_type j = 0; j < len_perm_vec; ++j){
-      //cout << "j=" << j << endl;
-      //cout << permuted_vector[i][j] << endl;
-      if ((j + 1) % (len_s1_vec - 1) != 0)
-        cout << permuted_vector[i][j] + " ";
-      else
-        cout << permuted_vector[i][j] << endl;
+    //cout << permuted_vector[i](permuted_vector[i].begin()) << endl;
+    // while (*iter != endmark){
+    //   cout << "rotating right" << endl;
+    //   rotate_right(permuted_vector[i]);
+    // }
+    for (vector<string>::size_type j = 0; j < len_s1_vec; ++j){
+      if (permuted_vector[i][j] != endmark) {
+        if (j != len_s1_vec - 1)
+          cout << permuted_vector[i][j] + " ";
+        else
+          cout << permuted_vector[i][j] << endl;
+      }
+      else {
+        if (j == len_s1_vec - 1)
+          cout << endl;
+      }
     }
   }
 }
