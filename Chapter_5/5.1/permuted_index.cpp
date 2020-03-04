@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <ctype.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,9 +8,10 @@
 
 using std::string;      using std::vector;
 using std::endl;        using std::cout;
-using std::sort;        using std::tolower;
+using std::sort;        using std::transform;
 
 const string endmark = "<ENDMARK>";
+const string startmark = "<STARTMARK>";
 
 // Function to rotate the index one place to the left
 void rotate_left(vector<string>& vec)
@@ -52,6 +54,7 @@ vector<vector<string>> permute_vec(vector<string>& vec)
   {
     if(shifted_vec[0] != endmark){
       //cout << shifted_vec[0] << endl;
+      //shifted_vec.insert(shifted_vec.begin(), startmark);
       *iter = shifted_vec;
       rotate_left(shifted_vec);
     }
@@ -62,8 +65,10 @@ vector<vector<string>> permute_vec(vector<string>& vec)
 
 // Bool func that compares the lowercase char of the first string in a vector<string>
  bool compare (vector<string> i, vector<string> j) {
-    //cout << i[0] << " " << j[0] << endl;
-    return (i[0] < j[0]); 
+    string s1 = i[0], s2 = j[0];
+    transform (s1.begin(), s1.end(), s1.begin(), ::tolower);
+    transform (s2.begin(), s2.end(), s2.begin(), ::tolower);
+    return (s1 < s2); 
    }
 
 // For testing
@@ -93,13 +98,16 @@ int main() {
   cout << "Permuations sorted!!!" << endl;
 
   for (vector<vector<string>>::iterator iter1 = permuted_vector.begin(); iter1 != permuted_vector.end(); iter1++){
+    string start = *((*iter1).begin());
     while (*((*iter1).begin()) != *(s1_vec.rbegin())){
       rotate_right(*iter1);
     }
     for (vector<string>::iterator iter2 = (*iter1).begin(); iter2 != (*iter1).end(); iter2++){
-      if (*iter2 != *(s1_vec.rbegin())) {
+      if (*iter2 != endmark) {
+        if (*iter2 == start)
+          cout << "    ";
         if (*iter2 != *((*iter1).rbegin()))
-          cout << *iter2 + " ";
+            cout << *iter2 + " ";
         else
           cout << *iter2 << endl;
       }
