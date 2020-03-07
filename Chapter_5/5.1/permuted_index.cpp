@@ -98,21 +98,21 @@ int main() {
   cout << "Permuations sorted!!!" << endl;
 
   for (vector<vector<string>>::iterator iter1 = permuted_vector.begin(); iter1 != permuted_vector.end(); iter1++){
-    string start = *((*iter1).begin());
-    while (*((*iter1).begin()) != *(s1_vec.rbegin())){
+    string start = *(iter1->begin());
+    while (*(iter1->begin()) != *(s1_vec.rbegin())){
       rotate_right(*iter1);
     }
-    for (vector<string>::iterator iter2 = (*iter1).begin(); iter2 != (*iter1).end(); iter2++){
+    for (vector<string>::iterator iter2 = iter1->begin(); iter2 != iter1->end(); iter2++){
       if (*iter2 != endmark) {
         if (*iter2 == start)
           cout << "    ";
-        if (*iter2 != *((*iter1).rbegin()))
+        if (*iter2 != *(iter1->rbegin()))
             cout << *iter2 + " ";
         else
           cout << *iter2 << endl;
       }
       else {
-        if (*iter2 == *((*iter1).rbegin()))
+        if (*iter2 == *(iter1->rbegin()))
           cout << endl;
       }
     }
