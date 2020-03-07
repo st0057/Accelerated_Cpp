@@ -1,13 +1,13 @@
-#include "extract_fails_ver3.h"
+#include "extract_fails_ver4.h"
 #include "Student_info.h"
 #include "grade.h"
 
-using std::vector;
+using std::list;  using std::vector;
 
 // separate passing and failing student records
-vector<Student_info> extract_fails(vector<Student_info>& students){
-  vector<Student_info> fail;
-  vector<Student_info>::iterator iter = students.begin();
+Students_infos extract_fails(Students_infos& students){
+  Students_infos fail;
+  Students_infos::iterator iter = students.begin();
   while (iter != students.end()) {
     if (fgrade(*iter)) {
       fail.push_back(*iter);
