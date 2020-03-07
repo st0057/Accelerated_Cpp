@@ -5,6 +5,7 @@
 #include <list>
 #include <stdexcept>
 #include <string>
+#include <typeinfo>
 #include <vector>
 #include "grade.h"
 #include "Student_info.h"
@@ -15,13 +16,14 @@ using std::cout;          using std::sort;
 using std::domain_error;   using std::streamsize;
 using std::endl;          using std::string;
 using std::max;           using std::vector;
-using std::list;
+using std::list;         
+
+typedef vector<Student_info> Students_infos;
+//typedef list<STudent_info> Students_infos;
 
 int main() {
-  // vector<Student_info> students;
-  // vector<Student_info> fails;
-  list<Student_info> students;
-  list<Student_info> fails;
+  Students_infos students;
+  Students_infos fails;
   Student_info record;
 
   // read and store all student data
@@ -31,8 +33,12 @@ int main() {
   }
 
   // alphabetize the student records
-  students.sort(compare);
-  //sort(students.begin(), students.end(), compare);
+  // if (typeid(students).name() == "list<Student_info>")
+  //   students.sort(compare);
+  // else if (typeid(students).name() == "vector<Student_info>")
+  sort(students.begin(), students.end(), compare);
+  // else
+  //   return 1;
 
   // Extract the failing grades
   fails = extract_fails(students);
