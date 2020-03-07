@@ -18,6 +18,8 @@ using std::max;           using std::vector;
 using std::list;
 
 int main() {
+  // vector<Student_info> students;
+  // vector<Student_info> fails;
   list<Student_info> students;
   list<Student_info> fails;
   Student_info record;
@@ -30,6 +32,7 @@ int main() {
 
   // alphabetize the student records
   students.sort(compare);
+  //sort(students.begin(), students.end(), compare);
 
   // Extract the failing grades
   fails = extract_fails(students);
