@@ -83,7 +83,9 @@ vector<string> center(const vector<string>& picture)
 
   for (vector<string>::const_iterator j = picture.begin(); j != picture.end(); ++j)
   {
+
     vector<string>::size_type padding = (max_length - j->size()) / 2;
+
     string new_line(padding, ' ');
     new_line += *j;
     new_picture.push_back(new_line);
@@ -102,8 +104,8 @@ int main() {
   abc1.push_back("cdef");
 
   picture.push_back("*");
-  picture.push_back("**");
   picture.push_back("***");
+  picture.push_back("*****");
 
   vector<string> new_picture = center(picture);
 
