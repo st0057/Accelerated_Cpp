@@ -5,18 +5,20 @@
 using std::list;  using std::vector;
 
 // separate passing and failing student records
-Students_infos extract_fails(Students_infos& students){
-  Students_infos fail;
+int extract_fails(Students_infos& students){
   Students_infos::iterator iter = students.begin();
+  int i = 0;
   while (iter != students.end()) {
-    if (fgrade(*iter)) {
-      fail.push_back(*iter);
-      iter = students.erase(iter);
+    if (!fgrade(*iter)) {
+      //students.insert(*iter, students.begin());
+      students.begin() = iter;
+      ++i;
     }
-    else
-      ++iter;
+    ++iter;
   }
-  return fail;
+  students.resize(i);
+
+  return 0;
 }
 
 bool fgrade(const Student_info& s){

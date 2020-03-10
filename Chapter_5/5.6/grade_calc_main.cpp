@@ -19,7 +19,6 @@ using std::list;
 
 int main() {
   Students_infos students;
-  Students_infos fails;
   Student_info record;
 
   // read and store all student data
@@ -36,10 +35,10 @@ int main() {
   // else
   //   return 1;
 
-  // Extract the failing grades
-  fails = extract_fails(students);
+  // Remove the failing grades
+  extract_fails(students);
 
-  cout << (*fails.begin()).name << "  " << grade((*fails.begin())) << endl;
+  cout << (*students.begin()).name << "  " << grade((*students.begin())) << endl;
 
   return 0;
 }
