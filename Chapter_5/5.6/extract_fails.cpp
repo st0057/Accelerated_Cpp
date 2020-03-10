@@ -1,20 +1,22 @@
 #include "extract_fails.h"
+#include <iostream>
 #include "Student_info.h"
 #include "grade.h"
 
 using std::list;  using std::vector;
+using std::cout;  using std::endl;
 
 // separate passing and failing student records
 int extract_fails(Students_infos& students){
-  Students_infos::iterator iter = students.begin();
+  
   int i = 0;
-  while (iter != students.end()) {
+  for (Students_infos::iterator iter = students.begin(); iter != students.end(); ++iter) {
+    //cout << iter->name << endl;
     if (!fgrade(*iter)) {
       //students.insert(*iter, students.begin());
-      students.begin() = iter;
+      *(students.begin() + i) = *iter;
       ++i;
     }
-    ++iter;
   }
   students.resize(i);
 

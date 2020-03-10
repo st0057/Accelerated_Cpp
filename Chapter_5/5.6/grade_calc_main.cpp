@@ -36,9 +36,13 @@ int main() {
   //   return 1;
 
   // Remove the failing grades
+  //cout << students.size() << endl;
   extract_fails(students);
 
-  cout << (*students.begin()).name << "  " << grade((*students.begin())) << endl;
-
+  //cout << (*students.begin()).name << "  " << grade((*students.begin())) << endl;
+  //cout << students.size() << endl;
+  for (Students_infos::iterator i = students.begin(); i != students.end(); ++i)
+    cout << i->name << " " << grade(*i) << endl;
+  //cout << (*fails.begin()).name << "  " << grade((*fails.begin())) << endl;
   return 0;
 }
