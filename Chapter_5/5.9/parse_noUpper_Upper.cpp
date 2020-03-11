@@ -9,19 +9,21 @@ using std::cin;         using std::isupper;
 
 int main() {
   string myString;
-  vector<string> myVector;
+  vector<string> myVector, uc_vec;
 
   cout << "Write a sentence with Upper and lowercase letters: "  << endl;
   while(cin >> myString)
     myVector.push_back(myString);
-
-  for (vector<string>::iterator i = myVector.begin(); i != myVector.end(); ++i){
-    if (!isupper((*i)[0]))
-      cout << (*i)[0] << "It's not upper case!" << endl;
-      myVector.begin() = i;
+  int j = 0;
+  for (vector<string>::size_type i = 0; i != myVector.size(); ++i){
+    if (!isupper(myVector[i][0])){
+      cout << myVector[i] << " ";
+    }
+    else
+      uc_vec.push_back(myVector[i]);
   }
 
-  for (vector<string>::iterator i = myVector.begin(); i != myVector.end(); ++i){
+  for (vector<string>::iterator i = uc_vec.begin(); i != uc_vec.end(); ++i){
     cout << *i << " ";
   }
   cout << endl;
