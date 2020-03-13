@@ -92,6 +92,8 @@ vector<string> find_common_vector_items(vector<string>& v1, vector<string>& v2)
 
 int main() {
   vector<string> dictionary, ascender_words, descender_words, non_ascender_words, non_descender_words, neither;
+  string::size_type biggest_non_count = 0;
+  string biggest_non;
 
   read(cin, dictionary);
 
@@ -114,8 +116,14 @@ int main() {
   cout << "-----Words With Neither-----" << endl;
   for (vector<string>::iterator i = neither.begin(); i != neither.end(); ++i)
   {
+    if (biggest_non_count < i->size()){
+      biggest_non_count = i->size();
+      biggest_non = *i;
+    }
     cout << *i  << endl;
   }
+
+  cout << "Longest word w/o asc. or des. is: "  << biggest_non << endl;
 
   return 0;
 }
