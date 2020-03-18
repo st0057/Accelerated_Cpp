@@ -1,5 +1,5 @@
 #include <iterator>
-//#include <iostream>
+#include <iostream>
 #include "vcat.h"
 
 using std::vector;        using std::string;
