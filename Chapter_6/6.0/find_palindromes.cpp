@@ -41,6 +41,8 @@ vector<string> find_palindromes(vector<string>& dictionary)
   return palindromes;
 }
 
+
+// Test code
 int main() {
   vector<string> dictionary, palindromes;
 
