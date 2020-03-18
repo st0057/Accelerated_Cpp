@@ -3,10 +3,8 @@
 #include "find_urls.h"
 
 using std::vector;        using std::string;
-using std::find_if;       using std::endl;
-using std::cout;          using std::cin;
-using std::isalnum;       using std::find;
-using std::istream;
+using std::endl;          using std::cout;
+using std::cin;           using std::istream;
 
 bool not_url_char(char c)
 {
