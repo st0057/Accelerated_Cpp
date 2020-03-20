@@ -5,6 +5,7 @@
 #include <list>
 #include <stdexcept>
 #include "grade.h"
+#include "median.h"
 #include "Student_info.h"
 
 using std::cin;           using std::setprecision;
@@ -12,7 +13,7 @@ using std::cout;          using std::sort;
 using std::domain_error;   using std::streamsize;
 using std::endl;          using std::string;
 using std::max;           using std::vector;
-using std::list;
+using std::list;          using std::ostream;
 
 double grade_aux(const Student_info& s)
 {
@@ -23,7 +24,7 @@ double grade_aux(const Student_info& s)
   }
 }
 
-double median_analysis(const vector<Student_info>& student)
+double median_analysis(const vector<Student_info>& students)
 {
   vector<double> grades;
 
@@ -60,8 +61,8 @@ int main() {
 
   // do the anaylysis
   write_analysis(cout, "median", median_analysis, did, didnt);
-  write_analysis(cout, "average", average_analysis, did, didnt);
-  write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
+  //write_analysis(cout, "average", average_analysis, did, didnt);
+  //write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
   
   return 0;
 }
