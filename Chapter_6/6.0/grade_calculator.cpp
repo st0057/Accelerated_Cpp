@@ -4,6 +4,7 @@
 #include <iostream>
 #include <list>
 #include <stdexcept>
+#include "average.h"
 #include "grade.h"
 #include "median.h"
 #include "Student_info.h"
@@ -29,6 +30,24 @@ double median_analysis(const vector<Student_info>& students)
   vector<double> grades;
 
   transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
+  return median(grades);
+}
+
+double average_analysis(const vector<Student_info>& students)
+{
+  vector<double> grades;
+
+  transform(students.begin(), students.end(), back_inserter(grades), average_grade);
+
+  return median(grades);
+}
+
+double optimistic_median_analysis(const vector<Student_info>& students)
+{
+  vector<double> grades;
+
+  transform(students.begin(),students.end(), back_inserter(grades), optimistic_median);
+
   return median(grades);
 }
 
@@ -61,8 +80,8 @@ int main() {
 
   // do the anaylysis
   write_analysis(cout, "median", median_analysis, did, didnt);
-  //write_analysis(cout, "average", average_analysis, did, didnt);
-  //write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
+  write_analysis(cout, "average", average_analysis, did, didnt);
+  write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
   
   return 0;
 }

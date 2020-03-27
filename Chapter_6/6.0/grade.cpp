@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <vector>
+#include "average.h"
 #include "grade.h"
 #include "median.h"
 #include "Student_info.h"
@@ -27,4 +28,9 @@ double grade(double midterm, double final, const vector<double>& hw)
 double grade(const Student_info& s)
 {
   return grade(s.midterm, s.final, s.homework);
+}
+
+double average_grade(const Student_info& s)
+{
+  return grade(s.midterm, s.final, average(s.homework));
 }

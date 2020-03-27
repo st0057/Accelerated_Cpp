@@ -9,5 +9,6 @@ bool did_all_hw(const Student_info&);
 double grade(double, double, double);
 double grade(double, double, const std::vector<double>&);
 double grade(const Student_info&);
+double average_grade(const Student_info&);
 
 #endif
