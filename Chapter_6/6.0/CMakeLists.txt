@@ -9,4 +9,4 @@ project (grade_calculator)
 
 # Add an executable
 
-add_executable(grade_calculator grade_calculator.cpp grade.cpp grade.h median.cpp median.h Student_info.cpp Student_info.h average.cpp average.h)
+add_executable(grade_calculator grade_calculator.cpp grade.cpp grade.h median.cpp median.h Student_info.cpp Student_info.h average.cpp average.h extract_fails.cpp extract_fails.h)

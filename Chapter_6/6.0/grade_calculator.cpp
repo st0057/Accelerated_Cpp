@@ -5,6 +5,7 @@
 #include <list>
 #include <stdexcept>
 #include "average.h"
+#include "extract_fails.h"
 #include "grade.h"
 #include "median.h"
 #include "Student_info.h"
@@ -57,7 +58,7 @@ void write_analysis(ostream& out, const string& name, double analysis(const vect
 }
 
 int main() {
-  vector<Student_info> did, didnt;
+  vector<Student_info> did, didnt, fails;
   Student_info student;
 
   // read all the records, separating them based on whether all hw was done
@@ -82,6 +83,11 @@ int main() {
   write_analysis(cout, "median", median_analysis, did, didnt);
   write_analysis(cout, "average", average_analysis, did, didnt);
   write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
+
+  // Extract the failing grades
+  fails = extract_fails_1(did);
+
+  cout << (*fails.begin()).name << "  " << grade((*fails.begin())) << endl;
   
   return 0;
 }

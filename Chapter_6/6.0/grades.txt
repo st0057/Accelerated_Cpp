@@ -1,3 +1,4 @@
 Smith 81 82 95 94 72
 Dale 90 33 77 91
 Carpenter 95 99 99 81 10 0
+Clyde 10 9 8 51 10 0
