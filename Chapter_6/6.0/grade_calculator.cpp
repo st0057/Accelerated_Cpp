@@ -86,8 +86,10 @@ int main() {
 
   // Extract the failing grades
   fails = extract_fails_1(did);
+  if (fails.size() != 0)
+    cout << (*fails.begin()).name << " " << grade(*(fails.begin())) << endl;
+  else 
+    cout << "Nobody that did all the hw failed!" << endl;
 
-  cout << (*fails.begin()).name << "  " << grade((*fails.begin())) << endl;
-  
   return 0;
 }
