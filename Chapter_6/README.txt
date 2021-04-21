@@ -1,0 +1,2 @@
+To run any of the programs like find_urls, find_palindromes, etc. and read from a text file you need to do "./<exec> < <text_file>".
+This will tell the program's istream calls to read from supplied file.
