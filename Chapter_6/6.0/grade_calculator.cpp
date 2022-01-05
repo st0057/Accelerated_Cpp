@@ -26,35 +26,46 @@ double grade_aux(const Student_info& s)
   }
 }
 
-double median_analysis(const vector<Student_info>& students)
+// problem 6.6 make these obsolete
+// double median_analysis(const vector<Student_info>& students)
+// {
+//   vector<double> grades;
+
+//   transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
+//   return median(grades);
+// }
+
+// double average_analysis(const vector<Student_info>& students)
+// {
+//   vector<double> grades;
+
+//   transform(students.begin(), students.end(), back_inserter(grades), average_grade);
+
+//   return median(grades);
+// }
+
+// double optimistic_median_analysis(const vector<Student_info>& students)
+// {
+//   vector<double> grades;
+
+//   transform(students.begin(),students.end(), back_inserter(grades), optimistic_median);
+
+//   return median(grades);
+// }
+
+// Problem 6.6 - Merge the 3 above functions into one.
+double analysis_merge(const vector<Student_info>& students, double grade_scheme(const Student_info&))
 {
   vector<double> grades;
 
-  transform(students.begin(), students.end(), back_inserter(grades), grade_aux);
-  return median(grades);
-}
-
-double average_analysis(const vector<Student_info>& students)
-{
-  vector<double> grades;
-
-  transform(students.begin(), students.end(), back_inserter(grades), average_grade);
+  transform(students.begin(),students.end(), back_inserter(grades), grade_scheme);
 
   return median(grades);
 }
 
-double optimistic_median_analysis(const vector<Student_info>& students)
+void write_analysis(ostream& out, const string& name, double grade_scheme(const Student_info&), const vector<Student_info>& did, const vector<Student_info>& didnt)
 {
-  vector<double> grades;
-
-  transform(students.begin(),students.end(), back_inserter(grades), optimistic_median);
-
-  return median(grades);
-}
-
-void write_analysis(ostream& out, const string& name, double analysis(const vector<Student_info>&), const vector<Student_info>& did, const vector<Student_info>& didnt)
-{
-  out << name << ": median(did) = " << analysis(did) << ", median(didnt) = " << analysis(didnt) << endl;
+  out << name << ": median(did) = " << analysis_merge(did, grade_scheme) << ", median(didnt) = " << analysis_merge(didnt, grade_scheme) << endl;
 }
 
 int main() {
@@ -80,9 +91,9 @@ int main() {
   }
 
   // do the anaylysis
-  write_analysis(cout, "median", median_analysis, did, didnt);
-  write_analysis(cout, "average", average_analysis, did, didnt);
-  write_analysis(cout, "median of homework turned in", optimistic_median_analysis, did, didnt);
+  write_analysis(cout, "median", grade_aux, did, didnt);
+  write_analysis(cout, "average", average_grade, did, didnt);
+  write_analysis(cout, "median of homework turned in", optimistic_median, did, didnt);
 
   // Extract the failing grades
   fails = extract_fails_1(did);
