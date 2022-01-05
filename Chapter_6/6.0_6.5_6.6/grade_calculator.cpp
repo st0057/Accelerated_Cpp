@@ -44,6 +44,7 @@ double grade_aux(const Student_info& s)
 //   return median(grades);
 // }
 
+// Problem 6.5
 // double optimistic_median_analysis(const vector<Student_info>& students)
 // {
 //   vector<double> grades;
