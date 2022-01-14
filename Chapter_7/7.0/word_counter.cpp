@@ -3,9 +3,12 @@
 #include <string>
 #include <vector>
 
+#include "split.h"
+
 using std::string;  using std::map;
 using std::cout;    using std::endl;
-using std::cin;
+using std::cin;     using std::vector;
+using std::istream;
 
 int main()
 {
